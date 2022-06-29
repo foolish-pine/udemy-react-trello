@@ -30,7 +30,7 @@ export const TaskCardTitle = () => {
   };
 
   return (
-    <div onClick={handleClick}>
+    <div onClick={handleClick} className="taskCardTitleInputArea">
       {isClick ? (
         <form onSubmit={handleSubmit}>
           <input
@@ -40,6 +40,7 @@ export const TaskCardTitle = () => {
             value={inputCardTitle}
             autoFocus
             maxLength="10"
+            className="taskCardTitleInput"
           />
         </form>
       ) : (
