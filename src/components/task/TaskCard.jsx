@@ -7,7 +7,11 @@ import { Tasks } from "./Tasks";
 export const TaskCard = () => {
   const [inputText, setInputText] = useState("");
   const [taskList, setTaskList] = useState([]);
-  console.log(taskList);
+
+  const deleteTask = (id) => {
+    const newTaskList = taskList.filter((task) => task.id !== id);
+    setTaskList(newTaskList);
+  };
 
   return (
     <div className="taskCard">
@@ -19,7 +23,7 @@ export const TaskCard = () => {
         taskList={taskList}
         setTaskList={setTaskList}
       />
-      <Tasks />
+      <Tasks taskList={taskList} deleteTask={deleteTask} />
     </div>
   );
 };

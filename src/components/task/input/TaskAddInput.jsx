@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 export const TaskAddInput = ({
   inputText,
   setInputText,
@@ -9,10 +11,11 @@ export const TaskAddInput = ({
 
     // カードを追加する
     setTaskList([
-      ...taskList,
       {
+        id: uuidv4(),
         text: inputText,
       },
+      ...taskList,
     ]);
 
     setInputText("");
