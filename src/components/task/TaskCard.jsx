@@ -13,6 +13,12 @@ export const TaskCard = () => {
     setTaskList(newTaskList);
   };
 
+  const handleDragEnd = (result) => {
+    // タスクを並び替える
+    const remove = taskList.splice(result.source.index, 1);
+    taskList.splice(result.destination.index, 0, remove[0]);
+  };
+
   return (
     <div className="taskCard">
       <TaskCardTitle />
@@ -23,7 +29,11 @@ export const TaskCard = () => {
         taskList={taskList}
         setTaskList={setTaskList}
       />
-      <Tasks taskList={taskList} deleteTask={deleteTask} />
+      <Tasks
+        taskList={taskList}
+        deleteTask={deleteTask}
+        handleDragEnd={handleDragEnd}
+      />
     </div>
   );
 };

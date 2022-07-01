@@ -9,10 +9,13 @@ export const TaskAddInput = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const taskId = uuidv4();
+
     // カードを追加する
     setTaskList([
       {
-        id: uuidv4(),
+        id: taskId,
+        draggableId: `draggable-${taskId}`,
         text: inputText,
       },
       ...taskList,
