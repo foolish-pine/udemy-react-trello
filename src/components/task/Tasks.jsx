@@ -1,10 +1,10 @@
 import { Task } from "./Task";
 import { DragDropContext, Droppable } from "react-beautiful-dnd";
 
-export const Tasks = ({ taskList, deleteTask, handleDragEnd }) => {
+export const Tasks = ({ taskList, deleteTask, handleTaskDragEnd }) => {
   return (
     <div>
-      <DragDropContext onDragEnd={(result) => handleDragEnd(result)}>
+      <DragDropContext onDragEnd={(result) => handleTaskDragEnd(result)}>
         <Droppable droppableId="droppable">
           {(provided) => (
             <div {...provided.droppableProps} ref={provided.innerRef}>
